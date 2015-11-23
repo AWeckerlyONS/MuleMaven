@@ -1,6 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-after_success:
+install:
   - echo "<settings><servers><server><id>mulesoft-private</id><username>\${env.MULE_USER}</username><password>\${env.MULE_PASS}</password></server></servers></settings>" > ~/settings.xml
   - mvn deploy --settings ~/settings.xml
