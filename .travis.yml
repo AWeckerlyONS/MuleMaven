@@ -6,4 +6,4 @@ install:
   - mvn install --settings ~/settings.xml
 after_success:
   - npm install -g cloudhub-cli
-  - cloudhub-cli account
+  - cloudhub-cli deploy --runtime 3.7.3 --workerSize .1 ons-travis-test /home/travis/build/bryangm/MuleMaven/target/hello_world-1.0.0-SNAPSHOT.zip
