@@ -4,3 +4,5 @@ jdk:
 install:
   - echo "<settings><servers><server><id>mulesoft-private</id><username>\${env.MULE_USER}</username><password>\${env.MULE_PASS}</password></server></servers></settings>" > ~/settings.xml
   - mvn install --settings ~/settings.xml
+deploy:
+  - skip_cleanup: true
