@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.ons</groupId>
 	<artifactId>hello_world</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.${env.SNAP_PIPELINE_COUNTER}</version>
     <packaging>mule</packaging>
 	<name>Mule hello_world Application</name>
 
@@ -27,28 +27,6 @@
 				<configuration>
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<deploymentType>cloudhub</deploymentType>
-					<muleVersion>${mule.version}</muleVersion>
-					<username>${env.CLOUDHUB_USER}</username>
-					<password>${env.CLOUDHUB_PASS}</password>
-					<environment>${env.CLOUDHUB_ENV}</environment>
-					<applicationName>${env.CLOUDHUB_APP}</applicationName>
-				</configuration>
-				<executions>
-					<execution>
-						<id>deploy</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
