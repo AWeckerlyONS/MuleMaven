@@ -8,15 +8,15 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="${http.port}" doc:name="HTTP Listener Configuration"/>
-    <http:request-config name="HTTP_Request_Configuration" host="172.16.2.161" port="61616" doc:name="HTTP Request Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="172.16.2.27" port="80" doc:name="HTTP Request Configuration"/>
     <http:request-config name="HTTP_Request_Configuration1" host="www.oncc.org" port="80" doc:name="HTTP Request Configuration"/>
     <flow name="hello_worldFlow1">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/test" doc:name="HTTP"/>
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/internal" doc:name="HTTP"/>
         <http:request config-ref="HTTP_Request_Configuration" path="/" method="GET" doc:name="HTTP"/>
         <object-to-string-transformer doc:name="Object to String"/>
     </flow>
     <flow name="hello_worldFlow2">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/test1" doc:name="HTTP"/>
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/external" doc:name="HTTP"/>
         <http:request config-ref="HTTP_Request_Configuration1" path="/" method="GET" doc:name="HTTP"/>
         <object-to-string-transformer doc:name="Object to String"/>
     </flow>
